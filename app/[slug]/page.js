@@ -14,7 +14,7 @@ export async function generateMetadata({params}){
     title:item.metaTitle,
     description:item.metaDescription,
     alternates:{canonical:`https://www.productpulseconsulting.com/${slug}`},
-    openGraph:{title:item.metaTitle,description:item.metaDescription}
+    openGraph:{title:item.metaTitle,description:item.metaDescription,images:[{url:'https://www.productpulseconsulting.com/og-image.svg',width:1200,height:630,type:'image/svg+xml',alt:'Product Pulse — Fractional Product Leadership for HRTech Startups'}]},twitter:{card:'summary_large_image',images:['https://www.productpulseconsulting.com/og-image.svg']}
   }
 }
 
