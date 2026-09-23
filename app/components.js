@@ -14,7 +14,7 @@ export function Nav() {
     <div className="container nav-inner">
       <Link href="/" className="logo" aria-label="Product Pulse home">Product Pulse<span /></Link>
       <nav className="nav-links" aria-label="Main navigation">
-        <Link href="/#about">About</Link>
+        <Link href="/#stef">About</Link>
         <Link href="/#services">What I do</Link>
         <Link href="/#work">Work</Link>
         <Link href="/contact">Contact</Link>
@@ -32,11 +32,12 @@ export function Portrait({className=''}) {
 }
 
 export function Footer() {
-  return <footer className="container footer">
-    <div><strong>Product Pulse</strong><span>Fractional Product Leadership for HRTech</span></div>
+  return <footer className="footer-wrap"><div className="container footer footer-rich">
+    <div className="footer-brand"><strong>Product Pulse<span className="footer-dot" /></strong><p>Fractional Product Leadership for HRTech.</p></div>
+    <div className="footer-person"><strong>Stefanie Stanislawski</strong><span>Product leader · Founder · Operator</span><small>Based in Germany · Working internationally</small></div>
     <div className="footer-links">
       <a href="https://www.linkedin.com/in/stefaniestanislawski/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-      <Link href="/contact">Contact</Link>
+      <Link href="/contact">Contact ↗</Link>
     </div>
-  </footer>
+  </div></footer>
 }
