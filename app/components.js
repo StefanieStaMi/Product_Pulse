@@ -1,12 +1,12 @@
 import Link from 'next/link'
 
-export const portraitUrl = 'https://framerusercontent.com/images/SwJjrw9gWACrKR3bryOEsCSM.jpeg'
+export const portraitUrl = '/Stef_Profile.jpeg'
 
 export const testimonialImages = {
-  bidjan: 'https://framerusercontent.com/images/1OJn3UOpoMx4ZffdPPgES11gibg.jpeg',
-  andrea: 'https://framerusercontent.com/images/0KbSXHNyjum6SCVG0DbzRGsu5PA.webp',
-  chet: 'https://framerusercontent.com/images/AFa1CPSR4u0Us5ht8R9yFboJexA.jpeg',
-  simon: 'https://framerusercontent.com/images/PvFczTssVGUdSJlAhf5E3GUoHY.jpeg'
+  bidjan: '/Bidjan.jpg',
+  andrea: '/Andrea.jpeg',
+  chet: '/Chet.jpeg',
+  simon: '/Simon.jpeg'
 }
 
 export function Nav() {
