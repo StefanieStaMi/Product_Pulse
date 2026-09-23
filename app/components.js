@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 
 export const portraitUrl = 'https://framerusercontent.com/images/SwJjrw9gWACrKR3bryOEsCSM.jpeg'
 
@@ -27,7 +26,7 @@ export function Nav() {
 
 export function Portrait({className=''}) {
   return <div className={'portrait '+className}>
-    <Image src={portraitUrl} alt="Stefanie Stanislawski, fractional product leader for HRTech startups" fill sizes="(max-width: 900px) 80vw, 420px" style={{objectFit:'cover', objectPosition:'center top'}} priority />
+    <img src={portraitUrl} alt="Stefanie Stanislawski, fractional product leader for HRTech startups" loading="eager" fetchPriority="high" />
     <div className="portrait-tag">Product · Strategy · Ops</div>
   </div>
 }
