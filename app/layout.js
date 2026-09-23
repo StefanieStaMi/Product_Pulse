@@ -15,13 +15,13 @@ export const metadata = {
     url: 'https://www.productpulseconsulting.com/',
     siteName: 'Product Pulse',
     type: 'website',
-    images: [{ url: '/og-image.svg', width: 1200, height: 630, type: 'image/svg+xml', alt: 'Product Pulse — Fractional Product Leadership for HRTech Startups' }]
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Product Pulse — Fractional Product Leadership for HRTech Startups' }]
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Fractional Product Leader for HRTech Startups | Product Pulse',
     description: 'Fractional product leadership and product operations for early-stage HRTech startups.',
-    images: ['/og-image.svg']
+    images: ['/opengraph-image']
   }
 }
 
@@ -43,7 +43,7 @@ const jsonLd = {
       name: 'Stefanie Stanislawski',
       jobTitle: 'Fractional Product Leader',
       url: 'https://www.productpulseconsulting.com/about',
-      image: 'https://framerusercontent.com/images/SwJjrw9gWACrKR3bryOEsCSM.jpeg',
+      image: 'https://www.productpulseconsulting.com/Stef_Profile.jpeg',
       worksFor: { '@id': 'https://www.productpulseconsulting.com/#organization' },
       sameAs: ['https://www.linkedin.com/in/stefaniestanislawski/'],
       knowsAbout: ['HRTech', 'Product Strategy', 'Product Leadership', 'Product Operations', 'Product-Market Fit', 'UX Strategy', 'Startup Product Management']
