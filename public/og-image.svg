@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f5f2ec"/>
+  <style>
+    .brand{font:700 44px Arial,Helvetica,sans-serif;fill:#151515}
+    .h{font:800 62px Arial,Helvetica,sans-serif;fill:#151515;letter-spacing:-2.8px}
+    .m{font:400 21px Arial,Helvetica,sans-serif;fill:#716d66}
+    .s{font:700 16px Arial,Helvetica,sans-serif;fill:#151515}
+    .card{font:700 16px Arial,Helvetica,sans-serif;fill:#151515;letter-spacing:1px}
+    .tag{font:800 27px Arial,Helvetica,sans-serif;fill:#fff}
+  </style>
+  <text x="70" y="96" class="brand">Product Pulse</text>
+  <circle cx="430" cy="82" r="9" fill="#ffd35c"/>
+  <text x="70" y="205" class="h">Fractional Product</text>
+  <text x="70" y="272" class="h">Leadership for</text>
+  <text x="70" y="339" class="h">HRTech Startups</text>
+  <text x="74" y="377" class="m">Strategy · Product · Operations · Growth</text>
+  <text x="74" y="417" class="s">Stefanie Stanislawski</text>
+  <text x="74" y="449" class="m">Senior product leadership for HRTech founders.</text>
+
+  <rect x="735" y="85" width="350" height="120" rx="24" fill="#f6d667" stroke="#151515" stroke-width="2"/>
+  <text x="757" y="118" class="card">PRODUCT STRATEGY</text>
+  <rect x="757" y="139" width="306" height="14" rx="7" fill="#fff"/>
+  <rect x="757" y="167" width="225" height="14" rx="7" fill="#fff"/>
+
+  <rect x="785" y="185" width="350" height="120" rx="24" fill="#d7c7ff" stroke="#151515" stroke-width="2"/>
+  <text x="807" y="218" class="card">PRODUCT OPS</text>
+  <rect x="807" y="239" width="306" height="14" rx="7" fill="#fff"/>
+  <rect x="807" y="267" width="225" height="14" rx="7" fill="#fff"/>
+
+  <rect x="710" y="285" width="350" height="120" rx="24" fill="#c8e8d8" stroke="#151515" stroke-width="2"/>
+  <text x="732" y="318" class="card">AI + CX</text>
+  <rect x="732" y="339" width="306" height="14" rx="7" fill="#fff"/>
+  <rect x="732" y="367" width="225" height="14" rx="7" fill="#fff"/>
+
+  <rect x="830" y="395" width="305" height="145" rx="25" fill="#151515"/>
+  <text x="858" y="435" class="tag">Make the product</text>
+  <text x="858" y="473" class="tag" fill="#ffd35c">work harder.</text>
+
+  <line x1="70" y1="585" x2="1135" y2="585" stroke="#ded9d0" stroke-width="2"/>
+</svg>
