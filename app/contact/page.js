@@ -1,0 +1,4 @@
+import Link from 'next/link'
+import { Nav, Footer } from '../components'
+export const metadata={title:'Contact — Product Pulse'}
+export default function Contact(){return <><Nav/><main className="section container"><div className="contact-layout"><div><div className="kicker">Let's connect</div><h1 className="case-title">Tell me what is stuck.</h1><p className="hero-copy">Whether you need product leadership for a defined chapter, a second brain for a difficult decision or help turning strategy into execution, let's start with the problem.</p><div className="actions"><Link href="/" className="button light">← Back home</Link></div></div><div className="tally"><iframe src="https://tally.so/embed/mJ5Njo?alignLeft=1&dynamicHeight=1&hideTitle=1&transparentBackground=1" title="Contact form"/></div></div></main><Footer/></>}
