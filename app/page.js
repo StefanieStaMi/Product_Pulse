@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { Nav, Footer, Portrait, testimonialImages } from './components'
 
 const work = [
@@ -46,28 +45,21 @@ export default function Home() {
         <Portrait/>
       </div>
     </section>
-
     <section className="logo-strip"><div className="container logo-strip-inner"><span>Experience across</span><strong>PERSONIO</strong><strong>FACTORIAL</strong><strong>LEAPSOME</strong><strong>PREDICTIVE PEOPLE</strong></div></section>
-
     <section className="section container" id="about">
       <div className="section-head"><div><div className="kicker">For founders & CEOs</div><h2>When product starts becoming the company's bottleneck.</h2></div><p className="section-intro">You don't necessarily need a permanent CPO. You do need somebody senior who can see the whole product system, make hard calls and get the team moving.</p></div>
       <div className="founder-grid light-grid">{founders.map(([title,text],i)=><article className="founder-card" key={title}><span>0{i+1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
     </section>
-
     <section className="section dark-band" id="services">
       <div className="container"><div className="section-head"><div><div className="kicker light-kicker">What I do</div><h2>Strategy is useful.<br/>Execution is the point.</h2></div><p className="section-intro dark-intro">I work across product strategy and product operations because, in an early-stage company, the two are inseparable.</p></div>
       <div className="services dark-services">{services.map(([n,t,p])=><article className="service dark-service" key={n}><span>{n}</span><h3>{t}</h3><p>{p}</p></article>)}</div></div>
     </section>
-
     <section className="section container" id="work">
       <div className="section-head"><div><div className="kicker">Selected work</div><h2>Products I've helped<br/>move forward.</h2></div><p className="section-intro">A few examples of the problems I've stepped into — from zero-to-one product creation to market fit, scale and team operating models.</p></div>
       <div className="work-grid">{work.map((item,i)=><Link className={'work-card '+item.tone} href={item.href} key={item.href}><div className="work-art"><div className="work-index">0{i+1}</div><div className="work-metric">{item.metric}</div><div className="artifact"><span>{item.name}</span><i/><i/><i/></div></div><div className="work-info"><small>{item.tag}</small><h3>{item.title}</h3><span>Read case study ↗</span></div></Link>)}</div>
     </section>
-
-    <section className="section proof-section"><div className="container"><div className="proof-head"><div><div className="kicker">Client proof</div><h2>Good product work<br/>gets remembered.</h2></div><p>Four founders, four different problems — the common thread is making product decisions clearer and execution stronger.</p></div><div className="quotes">{quotes.map(q=><article className="quote-card" key={q.name}><p>{q.quote}</p><div className="quote-person"><Image src={q.image} alt={q.name+' — '+q.role} width={56} height={56} style={{objectFit:'cover',borderRadius:'50%'}}/><div><strong>{q.name}</strong><span>{q.role}</span></div></div></article>)}</div></div></section>
-
+    <section className="section proof-section"><div className="container"><div className="proof-head"><div><div className="kicker">Client proof</div><h2>Good product work<br/>gets remembered.</h2></div><p>Four founders, four different problems — the common thread is making product decisions clearer and execution stronger.</p></div><div className="quotes">{quotes.map(q=><article className="quote-card" key={q.name}><p>{q.quote}</p><div className="quote-person"><img src={q.image} alt={q.name+' — '+q.role} width="56" height="56" loading="lazy"/><div><strong>{q.name}</strong><span>{q.role}</span></div></div></article>)}</div></div></section>
     <section className="section container about-tease"><div className="about-tease-inner"><div><div className="kicker">A bit more about me</div><h2>Founder empathy. Product discipline. Zero patience for theatre.</h2></div><div><p>I've lived the founder side, the product side and the scale-up side. That means I can move between strategy, customer reality, team dynamics and execution without losing the thread.</p><Link className="button light" href="/about">Meet Stef ↗</Link></div></div></section>
-
     <section className="container cta" id="contact"><div><div><div className="kicker light-kicker">Let's work together</div><h2>Have a product problem worth solving?</h2><p>Tell me what is stuck. We'll figure out whether I can help.</p></div><Link className="button accent" href="/contact">Start the conversation ↗</Link></div></section>
   </main><Footer/></>
 }
