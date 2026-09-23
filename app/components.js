@@ -17,7 +17,7 @@ export function Nav() {
         <Link href="/#about">About</Link>
         <Link href="/#services">What I do</Link>
         <Link href="/#work">Work</Link>
-        <Link href="/#contact">Contact</Link>
+        <Link href="/contact">Contact</Link>
       </nav>
       <Link className="nav-cta" href="/contact">Book a conversation ↗</Link>
     </div>
