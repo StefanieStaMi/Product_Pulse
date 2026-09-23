@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 32" width="129" height="32" fill="none">
+  
+  <g fill="#1A1713">
+    <polygon points="2,0 6,0 20,8 20,15 6,9 6,27 10,31 3,32 0,30 0,2"></polygon>
+    <polygon points="30,32 26,32 12,24 12,17 26,23 26,5 22,1 29,0 32,2 32,30"></polygon>
+  </g>
+
+  <!-- font-family uses a system stack (no unloaded 'Inter') so the rendered letterform is intentional. Ideal follow-up: convert this wordmark to outlined vector paths to fully match the brand display face. -->
+  <text x="42" y="25" font-family="-apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="-1" fill="#1A1713">Nodes</text>
+</svg>
