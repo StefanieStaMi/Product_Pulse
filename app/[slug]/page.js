@@ -18,6 +18,81 @@ export async function generateMetadata({params}){
   }
 }
 
+function MiniMetric({value,label}) {
+  return <div className={styles.miniMetric}><strong>{value}</strong><span>{label}</span></div>
+}
+
+function ProductVisual({slug}) {
+  if(slug==='potentialu') return <div className={styles.visualStage + ' ' + styles.potentialVisual} aria-label="PotentialU product interface mockup">
+    <div className={styles.windowBar}><span/><span/><span/><b>PotentialU</b></div>
+    <div className={styles.potentialShell}>
+      <aside className={styles.sideRail}>
+        <div className={styles.sideLogo}>U<span/></div>
+        <div className={styles.sideItemActive}>⌕</div><div className={styles.sideItem}>◌</div><div className={styles.sideItem}>↗</div><div className={styles.sideItem}>□</div>
+      </aside>
+      <div className={styles.potentialMain}>
+        <div className={styles.mockTopline}><div><span className={styles.eyebrow}>STORE OPERATIONS</span><strong>Hong Kong · District 07</strong></div><div className={styles.avatar}>DM</div></div>
+        <div className={styles.searchBox}><span>⌕</span><strong>Ask anything about store operations…</strong><em>⌘ K</em></div>
+        <div className={styles.answerCard}>
+          <div className={styles.answerTag}>INSTANT ANSWER</div>
+          <h3>What is the current closing procedure?</h3>
+          <p>Store managers should complete the cash reconciliation, submit the daily checklist, and confirm the handover before close.</p>
+          <div className={styles.sourceRow}><span>3 verified sources</span><span>92% confidence</span></div>
+        </div>
+        <div className={styles.potentialBottom}>
+          <MiniMetric value="96%" label="answer accuracy"/>
+          <MiniMetric value="15s" label="target response time"/>
+          <MiniMetric value="24/7" label="frontline access"/>
+        </div>
+      </div>
+    </div>
+    <div className={styles.floatCard + ' ' + styles.floatTop}><span>AI AGENTS</span><strong>Ops · Coach · Team</strong><small>Role-aware intelligence</small></div>
+    <div className={styles.floatCard + ' ' + styles.floatBottom}><span>LIVE CLIENT</span><strong>Starbucks HK</strong><small>Pilot → scaled deployment</small></div>
+  </div>
+
+  if(slug==='cubic-art') return <div className={styles.visualStage + ' ' + styles.cubicVisual} aria-label="Cubic.Art marketplace product interface mockup">
+    <div className={styles.cubicOrb}/><div className={styles.cubicOrbSmall}/>
+    <div className={styles.marketWindow}>
+      <div className={styles.windowBar}><span/><span/><span/><b>Cubic.Art</b></div>
+      <div className={styles.marketNav}><strong>Explore</strong><span>Artworks</span><span>Collections</span><span>My portfolio</span><span className={styles.marketProfile}>AS</span></div>
+      <div className={styles.marketBody}>
+        <div className={styles.marketHero}><div><span className={styles.eyebrow}>DIGITAL ART · MARKETPLACE</span><h3>Build a portfolio<br/>worth coming back to.</h3></div><MiniMetric value="+300%" label="revenue in 6 months"/></div>
+        <div className={styles.artGrid}><div className={styles.artLarge}><span>01</span><b>Untitled / 04</b></div><div className={styles.artLilac}><span>02</span></div><div className={styles.artBlue}><span>03</span></div></div>
+      </div>
+    </div>
+    <div className={styles.floatCard + ' ' + styles.cubicFloat}><span>PRODUCT SYSTEM</span><strong>Vision · UX · Roadmap</strong><small>Sharper direction, stronger execution</small></div>
+  </div>
+
+  if(slug==='leapsome') return <div className={styles.visualStage + ' ' + styles.leapsomeVisual} aria-label="Leapsome CoreHR product interface mockup">
+    <div className={styles.hrShell}>
+      <aside className={styles.hrSide}><div className={styles.hrLogo}>leapsome<span/></div><div className={styles.hrNavActive}>Overview</div><div>People</div><div>Time off</div><div>Payroll</div><div>Documents</div></aside>
+      <div className={styles.hrMain}>
+        <div className={styles.hrHead}><div><span className={styles.eyebrow}>COREHR</span><h3>People overview</h3></div><span className={styles.hrPill}>Beta</span></div>
+        <div className={styles.hrMetrics}><MiniMetric value="428" label="employees"/><MiniMetric value="96%" label="profiles complete"/><MiniMetric value="14" label="new this month"/></div>
+        <div className={styles.hrTable}>
+          <div className={styles.hrTableHead}><span>Employee</span><span>Role</span><span>Status</span></div>
+          <div><span><i className={styles.personDot}>MC</i> Maya Chen</span><span>People Ops</span><b>Active</b></div>
+          <div><span><i className={styles.personDot}>JR</i> James Roth</span><span>Engineering</span><b>Active</b></div>
+          <div><span><i className={styles.personDot}>AM</i> Ana Müller</span><span>Marketing</span><b>On leave</b></div>
+          <div><span><i className={styles.personDot}>DK</i> David Kim</span><span>Sales</span><b>Active</b></div>
+        </div>
+      </div>
+    </div>
+    <div className={styles.floatCard + ' ' + styles.hrFloat}><span>PRODUCT ADVISORY</span><strong>Vision · Scope · Validation</strong><small>New CoreHR product area</small></div>
+  </div>
+
+  return <div className={styles.visualStage + ' ' + styles.oneClimateVisual} aria-label="OneClimate product interface mockup">
+    <div className={styles.phoneMock}>
+      <div className={styles.phoneNotch}/>
+      <div className={styles.phoneTop}><span>9:41</span><b>OneClimate</b><span>•••</span></div>
+      <div className={styles.pathHero}><span>YOUR ACTION PATH</span><strong>Make climate action<br/>a habit.</strong><div className={styles.pathCircle}>72%</div></div>
+      <div className={styles.actionCards}><div><b>Today's action</b><span>Choose a lower-carbon lunch</span><em>+20</em></div><div><b>Keep your streak</b><span>4 days in a row</span><em>🔥</em></div></div>
+      <div className={styles.phoneNav}><span>Home</span><span>Path</span><span>Impact</span><span>Profile</span></div>
+    </div>
+    <div className={styles.floatCard + ' ' + styles.oneClimateFloat}><span>GROWTH LOOP</span><strong>Activation · Habit · Retention</strong><small>Action Path → production in 6 weeks</small></div>
+  </div>
+}
+
 export default async function CasePage({params}){
   const {slug}=await params
   const item=cases[slug]
@@ -46,14 +121,7 @@ export default async function CasePage({params}){
             </div>
             <a className="button primary" href={item.preview} target="_blank" rel="noreferrer">Visit product ↗</a>
           </div>
-          <div className={styles.gallery} aria-label={item.name + ' project visuals'}>
-            <div className={styles.galleryFeature}><img src={item.images[0].src} alt={item.images[0].alt} /></div>
-            <div className={styles.galleryStack}>
-              <div className={styles.gallerySmall}><img src={item.images[1].src} alt={item.images[1].alt} /></div>
-              <div className={styles.gallerySmall}><img src={item.images[2].src} alt={item.images[2].alt} /></div>
-            </div>
-            <div className={styles.galleryLabel}>{item.visualNote}</div>
-          </div>
+          <ProductVisual slug={slug}/>
         </div>
       </div>
     </section>
