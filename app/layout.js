@@ -1,5 +1,6 @@
 import './globals.css'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata = {
   metadataBase: new URL('https://www.productpulseconsulting.com'),
@@ -55,6 +56,7 @@ export default function RootLayout({ children }) {
     <body>
       {children}
       <Analytics />
+      <SpeedInsights />
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}} />
     </body>
   </html>
