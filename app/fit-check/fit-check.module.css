@@ -16,3 +16,6 @@
 .prose{line-height:1.7;max-width:720px;margin:0 auto 4rem}
 .prose h2{margin-top:2rem}
 @media(max-width:640px){.row{grid-template-columns:1fr}}
+.card{border:2px solid #1f3d2b;background:#eaf2ec;border-radius:14px;padding:1.6rem 1.4rem;margin:2rem 0;color:#14261b}
+.card h2{margin:.3rem 0 .8rem}
+.card p{line-height:1.6}

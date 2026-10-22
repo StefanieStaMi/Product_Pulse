@@ -44,8 +44,8 @@ export async function POST(req) {
   }
 
   try {
-    const html = await generateProfile(a)
-    await sendProfileEmail({ email: email.toLowerCase(), firstName: a.first_name, html })
+    const { html } = await generateProfile(a)
+    await sendProfileEmail({ email: email.toLowerCase(), firstName: a.first_name, html, blocker: a.blocker })
     if (body.newsletter === true) {
       try { await subscribeNewsletter({ email: email.toLowerCase(), firstName: a.first_name }) }
       catch (e) { console.error('fitcheck newsletter', e.message) }
