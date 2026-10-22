@@ -14,13 +14,14 @@ export default function Privacy() {
     <h2>Why</h2>
     <p>To generate your Fit Check profile and email it to you (Art. 6(1)(b) GDPR: providing the service you request). If you tick the newsletter box, to send you Layers emails (Art. 6(1)(a) GDPR: consent, which you can withdraw anytime via the unsubscribe link).</p>
     <h2>How long</h2>
-    <p>Your answers and the generated profile are deleted from our database automatically 30 days after submission. In our email tool (Kit) we keep your name, email and the delivered profile only to send it; if you didn't opt into the newsletter you won't receive marketing emails, and you can ask us to delete you at any time. If you opted in, you stay on the list until you unsubscribe.</p>
+    <p>Your answers and the generated profile are deleted from our database automatically 30 days after submission. The email with your profile is sent via Resend, which keeps delivery logs for a limited time. Only if you ticked the newsletter box do we add your name and email to our newsletter tool (Kit), where you stay until you unsubscribe.</p>
     <h2>Who processes it for us</h2>
     <ul>
       <li><strong>Supabase</strong> (database, EU region Frankfurt): stores your answers until deletion.</li>
       <li><strong>Vercel</strong>: website hosting.</li>
       <li><strong>OpenAI</strong>: generates the text via API. API data is not used to train models; it may be processed outside the EU under Standard Contractual Clauses.</li>
-      <li><strong>Kit (ConvertKit)</strong>: delivers your profile by email and, only if you ticked the box, sends the newsletter (USA, Standard Contractual Clauses).</li>
+      <li><strong>Resend</strong>: sends the one email with your profile (USA, Standard Contractual Clauses).</li>
+      <li><strong>Kit (ConvertKit)</strong>: newsletter, and only if you ticked that box (USA, Standard Contractual Clauses).</li>
     </ul>
     <h2>Your rights</h2>
     <p>You can request access, correction, deletion, restriction, portability, object to processing, and withdraw consent. Email <a href="mailto:stefanie@productpulseconsulting.com">stefanie@productpulseconsulting.com</a> and we'll act within a few days. You can also complain to a data protection authority, e.g. the Hessian Commissioner for Data Protection (HBDI).</p>

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { sbRpc, hashIp, generateProfile, deliverViaKit } from '../../../lib/fitcheck'
+import { sbRpc, hashIp, generateProfile, sendProfileEmail, subscribeNewsletter } from '../../../lib/fitcheck'
 import { FLEX_OPTIONS, YEARS, FUNCTIONS } from '../../fit-check/questions'
 
 export const runtime = 'nodejs'
@@ -45,7 +45,11 @@ export async function POST(req) {
 
   try {
     const html = await generateProfile(a)
-    await deliverViaKit({ email: email.toLowerCase(), firstName: a.first_name, html, newsletter: body.newsletter === true })
+    await sendProfileEmail({ email: email.toLowerCase(), firstName: a.first_name, html })
+    if (body.newsletter === true) {
+      try { await subscribeNewsletter({ email: email.toLowerCase(), firstName: a.first_name }) }
+      catch (e) { console.error('fitcheck newsletter', e.message) }
+    }
     await sbRpc('fitcheck_complete', { p_id: id, p_profile: html, p_status: 'sent' })
     return NextResponse.json({ ok: true })
   } catch (e) {
