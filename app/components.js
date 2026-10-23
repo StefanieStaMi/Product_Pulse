@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import ResourcesMenu from './ResourcesMenu'
 
 export const portraitUrl = '/Stef_Profile.jpeg'
 
@@ -18,8 +19,9 @@ export function Nav() {
         <Link href="/#services">What I do</Link>
         <Link href="/#work">Work</Link>
         <Link href="/contact">Contact</Link>
+        <ResourcesMenu />
       </nav>
-      <Link className="nav-cta" href="/contact">Book a conversation ↗</Link>
+      <Link className="nav-cta" href="/contact">Book<span className="nav-cta-long"> a conversation</span> ↗</Link>
     </div>
   </header>
 }
