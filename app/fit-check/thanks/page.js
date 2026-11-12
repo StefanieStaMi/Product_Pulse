@@ -15,7 +15,7 @@ export default function Thanks() {
       <h2>Let's turn your best option into a plan you can actually test.</h2>
       <p>Bring your results to a one-hour working session with me. We'll challenge the ideas, sharpen who you could help and how, and map your first experiment around your work and family life.</p>
       <p><strong>60 minutes · 1:1 on video · €150</strong>, paid when you book.</p>
-      <a className="button" href={BOOKING_URL} target="_blank" rel="noreferrer">Build my test plan with Stefanie · €150</a>
+      <a className="button primary" href={BOOKING_URL} target="_blank" rel="noreferrer">Build my test plan with Stefanie · €150</a>
     </div>
     <div className="actions"><Link href="/" className="button light">← Back home</Link></div>
   </div></main><Footer /></>

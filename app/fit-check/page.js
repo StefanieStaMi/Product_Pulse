@@ -17,7 +17,7 @@ export default function FitCheck() {
     <div className="kicker">Layers · Freedom-of-Work Fit Check · Free</div>
     <h1 className="case-title">You've built the experience. What else could you do with it?</h1>
     <p className={s.lead}>For senior women in tech who are mothers: turn the career you already have into 2–3 possible fractional, consulting, advisory or mentoring options, plus a small, practical way to test each one around your real life.</p>
-    <div className="actions" style={{ margin: '0 0 2.5rem' }}><a className="button" href="#start">Show me my options →</a></div>
+    <div className="actions" style={{ margin: '0 0 2.5rem' }}><a className="button primary" href="#start">Show me my options →</a></div>
 
     <h2 className={s.h2}>Sound familiar?</h2>
     <ul className={s.list}>

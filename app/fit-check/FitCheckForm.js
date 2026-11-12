@@ -80,7 +80,7 @@ export default function FitCheckForm() {
       <span>Yes, also send me Layers' emails about redesigning work around your life. Unsubscribe anytime with one click. (Optional)</span></label>
 
     {error && <p className={s.error} role="alert">{error}</p>}
-    <button className="button" type="submit" disabled={busy}>{busy ? 'Writing your options… (about 30 seconds)' : 'Send me my options →'}</button>
+    <button className="button primary" type="submit" disabled={busy}>{busy ? 'Writing your options… (about 30 seconds)' : 'Send me my options →'}</button>
     <p className={s.small}>AI-assisted and based only on what you share. A starting point, not career, legal or financial advice.</p>
   </form>
 }

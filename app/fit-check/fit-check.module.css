@@ -23,4 +23,5 @@
 .dim{opacity:.45;cursor:not-allowed}
 .steps{line-height:1.7;margin:0 0 2rem 1.2rem}
 .about{border-left:3px solid #1f3d2b;padding:.2rem 0 .2rem 1rem;margin:0 0 2rem}
-.h2{font-size:1.15rem;margin:0 0 .6rem}
+.wrap .h2{font-size:clamp(24px,3vw,30px);line-height:1.15;letter-spacing:-.03em;margin:0 0 .8rem}
+.wrap .card h2{font-size:clamp(26px,3.4vw,36px);line-height:1.1;letter-spacing:-.04em;margin:.4rem 0 .9rem}
