@@ -7,9 +7,9 @@ import { useEffect, useRef, useState } from 'react'
 export const resources = [
   {
     href: '/fit-check',
-    title: 'Fractional Fit Check',
+    title: 'Freedom-of-Work Fit Check',
     badge: 'Free',
-    description: 'Find your first step into fractional work in 3 minutes'
+    description: 'Your freedom-of-work options in 5 minutes'
   }
 ]
 

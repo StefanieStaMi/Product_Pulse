@@ -1,12 +1,13 @@
 import { NextResponse } from 'next/server'
 import { sbRpc, hashIp, generateProfile, sendProfileEmail, subscribeNewsletter } from '../../../lib/fitcheck'
-import { FLEX_OPTIONS, YEARS, FUNCTIONS } from '../../fit-check/questions'
+import { HOURS, STAY_EMPLOYED, PROTECT, FORMATS, MAX_PROTECT, EXPERIENCE_MIN, EXPERIENCE_MAX } from '../../fit-check/questions'
 
 export const runtime = 'nodejs'
 export const maxDuration = 60
 export const dynamic = 'force-dynamic'
 
 const str = (v, max, min = 0) => typeof v === 'string' && v.trim().length >= min && v.trim().length <= max ? v.trim() : null
+const pick = (v, allowed) => Array.isArray(v) ? [...new Set(v.filter(x => allowed.includes(x)))] : []
 
 export async function POST(req) {
   let body
@@ -16,22 +17,29 @@ export async function POST(req) {
   if (body.company_website) return NextResponse.json({ ok: true })
 
   const email = str(body.email, 200)
+  const protect = pick(body.protect, PROTECT)
+  const formats = pick(body.formats, FORMATS)
   const a = {
+    version: 2,
     first_name: str(body.first_name, 60, 1),
-    role_line: str(body.role_line, 200, 3),
-    years: YEARS.includes(body.years) ? body.years : null,
-    function: FUNCTIONS.includes(body.function) ? (body.function === 'Other' ? (str(body.function_other, 100, 1) || 'Other') : body.function) : null,
-    highlights: str(body.highlights, 3000, 40),
-    go_to_problem: str(body.go_to_problem, 1000, 3),
-    industries: str(body.industries, 300, 2),
-    flexibility: Array.isArray(body.flexibility) ? body.flexibility.filter(f => FLEX_OPTIONS.includes(f)) : [],
-    income_need: str(body.income_need || '', 100) || '',
+    experience: str(body.experience, EXPERIENCE_MAX, EXPERIENCE_MIN),
+    more_and_never: str(body.more_and_never, 1000, 3),
+    hours_per_week: HOURS.includes(body.hours_per_week) ? body.hours_per_week : null,
+    stay_employed: STAY_EMPLOYED.includes(body.stay_employed) ? body.stay_employed : null,
+    protect: protect.length <= MAX_PROTECT ? protect : null,
+    income_floor: str(body.income_floor || '', 100) || '',
+    formats: formats.length ? formats : null,
     blocker: str(body.blocker, 1000, 3)
   }
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return NextResponse.json({ error: 'Please enter a valid email address.' }, { status: 400 })
   const missing = Object.entries(a).filter(([k, v]) => v === null).map(([k]) => k)
-  if (missing.length) return NextResponse.json({ error: 'Please answer every question (highlights need a little more detail).', fields: missing }, { status: 400 })
-  if (body.consent !== true) return NextResponse.json({ error: 'Consent is required to create your profile.' }, { status: 400 })
+  if (missing.length) {
+    const msg = missing.includes('experience') ? `Please paste between ${EXPERIENCE_MIN} and ${EXPERIENCE_MAX.toLocaleString('en')} characters of your experience.`
+      : missing.includes('protect') ? `Please pick up to ${MAX_PROTECT} things this must protect.`
+      : 'Please answer every question.'
+    return NextResponse.json({ error: msg, fields: missing }, { status: 400 })
+  }
+  if (body.consent !== true) return NextResponse.json({ error: 'Consent is required to create your options.' }, { status: 400 })
 
   const ip = (req.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'unknown'
   let id
@@ -45,7 +53,7 @@ export async function POST(req) {
 
   try {
     const { html } = await generateProfile(a)
-    await sendProfileEmail({ email: email.toLowerCase(), firstName: a.first_name, html, blocker: a.blocker })
+    await sendProfileEmail({ email: email.toLowerCase(), firstName: a.first_name, html })
     if (body.newsletter === true) {
       try { await subscribeNewsletter({ email: email.toLowerCase(), firstName: a.first_name }) }
       catch (e) { console.error('fitcheck newsletter', e.message) }
@@ -55,6 +63,6 @@ export async function POST(req) {
   } catch (e) {
     console.error('fitcheck generate/deliver', e.message)
     await sbRpc('fitcheck_complete', { p_id: id, p_profile: null, p_status: 'failed' }).catch(() => {})
-    return NextResponse.json({ error: 'We saved your answers but hit a snag writing your profile. Stefanie will follow up by email.' }, { status: 502 })
+    return NextResponse.json({ error: 'We saved your answers but hit a snag writing your options. Stefanie will follow up by email.' }, { status: 502 })
   }
 }

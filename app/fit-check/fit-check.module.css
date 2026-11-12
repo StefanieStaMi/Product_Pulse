@@ -19,3 +19,8 @@
 .card{border:2px solid #1f3d2b;background:#eaf2ec;border-radius:14px;padding:1.6rem 1.4rem;margin:2rem 0;color:#14261b}
 .card h2{margin:.3rem 0 .8rem}
 .card p{line-height:1.6}
+.counter{align-self:flex-end}
+.dim{opacity:.45;cursor:not-allowed}
+.steps{line-height:1.7;margin:0 0 2rem 1.2rem}
+.about{border-left:3px solid #1f3d2b;padding:.2rem 0 .2rem 1rem;margin:0 0 2rem}
+.h2{font-size:1.15rem;margin:0 0 .6rem}
