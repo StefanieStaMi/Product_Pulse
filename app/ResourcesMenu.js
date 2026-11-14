@@ -10,6 +10,18 @@ export const resources = [
     title: 'Freedom-of-Work Fit Check',
     badge: 'Free',
     description: 'Find work that fits your home — in 5 minutes, free'
+  },
+  {
+    href: '/resources/paz',
+    title: 'PAZ — Peace by design',
+    badge: 'Free',
+    description: '[Placeholder] A one-page sheet to design a calmer week (EN + ES)'
+  },
+  {
+    href: '/resources/mapa',
+    title: 'MAPA — Family temperament map',
+    badge: 'Free',
+    description: '[Placeholder] A one-page map of each child’s temperament (EN + ES)'
   }
 ]
 

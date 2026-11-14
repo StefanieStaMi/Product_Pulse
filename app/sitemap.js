@@ -8,7 +8,8 @@ export default function sitemap() {
     'oneclimate',
     'potentialu',
     'leapsome',
-    'fit-check'
+    'fit-check',
+    'resources'
   ]
   return pages.map((path) => ({
     url: path ? `${base}/${path}` : base,
