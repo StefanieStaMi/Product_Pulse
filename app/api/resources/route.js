@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { hashIp, subscribeNewsletter } from '../../../lib/fitcheck'
+import { enrolWelcomeSequence } from '../../../lib/welcome-sequence'
 import { isLang, isSheet, sheets } from '../../../lib/resources-config'
 import { downloadPath, makeDownloadToken, markResourceSent, readPdf, sendResourceEmail, submitResourceRequest } from '../../../lib/resources'
 
@@ -65,15 +66,14 @@ export async function POST(req) {
     console.error('resource email', e.message)
   }
 
-  // TODO(7-day sequence): when newsletter is true, enrol this contact in the
-  // Layers 7-day email sequence (Resend Automations). Do not wire this until
-  // Stefanie has approved the sequence copy and a preview test has been sent.
-  // Hook point: after a successful opt-in below, fire a Resend contact/event
-  // (or the future enrolSequence({ email, firstName, source: 'resources' }) helper).
-  // Do not start the sequence for people who only requested a download.
+  // Welcome sequence: only when the newsletter box is ticked. Disabled in
+  // production until WELCOME_SEQUENCE_ENABLED=true. Do not start it for
+  // people who only requested a download.
   if (body.newsletter === true) {
     try { await subscribeNewsletter({ email: email.toLowerCase(), firstName }) }
     catch (e) { console.error('resource newsletter', e.message) }
+    try { await enrolWelcomeSequence({ email: email.toLowerCase(), firstName, source: resource, lang }) }
+    catch (e) { console.error('resource welcome sequence', e.message) }
   }
 
   if (!emailed) {
