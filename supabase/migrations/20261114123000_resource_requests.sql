@@ -77,9 +77,9 @@ revoke all on function public.resource_request_mark_sent(uuid) from public;
 grant execute on function public.resource_request_submit(text, text, text, text, boolean, boolean, text) to anon, authenticated, service_role;
 grant execute on function public.resource_request_mark_sent(uuid) to anon, authenticated, service_role;
 
--- 30-day retention, matching the privacy notice and the Fit Check job (03:20 UTC).
+-- 12-month retention for download sign-ups (03:20 UTC). Fit Check rows stay on a separate 30-day job.
 SELECT cron.schedule(
   'resource-requests-retention',
   '20 3 * * *',
-  $$delete from public.resource_requests where created_at < now() - interval '30 days'$$
+  $$delete from public.resource_requests where created_at < now() - interval '12 months'$$
 );
