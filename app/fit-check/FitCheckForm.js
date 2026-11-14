@@ -49,7 +49,7 @@ export default function FitCheckForm() {
       <textarea name="experience" required minLength={EXPERIENCE_MIN} maxLength={EXPERIENCE_MAX} rows={12} value={exp} onChange={e => setExp(e.target.value)} />
       <small className={s.counter} aria-live="polite">{len < EXPERIENCE_MIN ? `${len} / ${EXPERIENCE_MIN} characters minimum` : `${len.toLocaleString('en')} / ${EXPERIENCE_MAX.toLocaleString('en')} characters`}</small></label>
 
-    <label className={s.q}><span>3. What do you want more of, and what do you never want to do again?</span><small>e.g. "More: untangling messy product strategy with founders. Never again: 9pm release calls and managing up all day."</small>
+    <label className={s.q}><span>3. What do you want more of, and what do you never want to do again?</span><small>e.g. "More: thinking clearly with a small team, and being home when school ends. Never again: 9pm calls and proving myself all day."</small>
       <textarea name="more_and_never" required maxLength={1000} rows={3} /></label>
 
     <fieldset className={s.q}><legend>4. What could you realistically make room for?</legend>

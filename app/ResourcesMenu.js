@@ -9,7 +9,7 @@ export const resources = [
     href: '/fit-check',
     title: 'Freedom-of-Work Fit Check',
     badge: 'Free',
-    description: 'Your freedom-of-work options in 5 minutes'
+    description: 'Find work that fits your home — in 5 minutes, free'
   }
 ]
 
