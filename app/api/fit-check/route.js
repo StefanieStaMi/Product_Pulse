@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { sbRpc, hashIp, generateProfile, sendProfileEmail, subscribeNewsletter } from '../../../lib/fitcheck'
+import { enrolWelcomeSequence } from '../../../lib/welcome-sequence'
 import { HOURS, STAY_EMPLOYED, PROTECT, FORMATS, MAX_PROTECT, EXPERIENCE_MIN, EXPERIENCE_MAX } from '../../fit-check/questions'
 
 export const runtime = 'nodejs'
@@ -57,6 +58,8 @@ export async function POST(req) {
     if (body.newsletter === true) {
       try { await subscribeNewsletter({ email: email.toLowerCase(), firstName: a.first_name }) }
       catch (e) { console.error('fitcheck newsletter', e.message) }
+      try { await enrolWelcomeSequence({ email: email.toLowerCase(), firstName: a.first_name, source: 'fitcheck' }) }
+      catch (e) { console.error('fitcheck welcome sequence', e.message) }
     }
     await sbRpc('fitcheck_complete', { p_id: id, p_profile: html, p_status: 'sent' })
     return NextResponse.json({ ok: true })
