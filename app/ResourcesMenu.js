@@ -2,27 +2,21 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
+import { fitCheck, sheetList } from '../lib/resources-config'
 
-// Add more resources here — they appear in the dropdown automatically.
 export const resources = [
   {
-    href: '/fit-check',
-    title: 'Freedom-of-Work Fit Check',
-    badge: 'Free',
-    description: 'Find work that fits your home — in 5 minutes, free'
+    href: fitCheck.href,
+    title: fitCheck.menuTitle,
+    badge: fitCheck.badge,
+    description: fitCheck.menuDescription
   },
-  {
-    href: '/resources/paz',
-    title: 'PAZ — Peace by design',
-    badge: 'Free',
-    description: '[Placeholder] A one-page sheet to design a calmer week (EN + ES)'
-  },
-  {
-    href: '/resources/mapa',
-    title: 'MAPA — Family temperament map',
-    badge: 'Free',
-    description: '[Placeholder] A one-page map of each child’s temperament (EN + ES)'
-  }
+  ...sheetList.map(sheet => ({
+    href: `/resources/${sheet.id}`,
+    title: sheet.menuTitle,
+    badge: sheet.badge,
+    description: sheet.menuDescription
+  }))
 ]
 
 export default function ResourcesMenu() {

@@ -76,7 +76,7 @@ export default function ResourcesView({ initialResource = '', initialLang = 'en'
     <h1 className="case-title">{t.title}</h1>
     <p className={s.lead}>{t.lead}</p>
     <p className={s.cred}>{t.credential}</p>
-    <p className={s.note}>{t.placeholderNote}</p>
+    {t.placeholderNote ? <p className={s.note}>{t.placeholderNote}</p> : null}
 
     <div className={s.lang} role="group" aria-label={t.langLabel}>
       <span>{t.langLabel}</span>
@@ -94,6 +94,7 @@ export default function ResourcesView({ initialResource = '', initialLang = 'en'
       <div className={s.pair}>
         {sheetList.map(sheet => (
           <article className={`${s.card} ${s[sheet.id]}`} key={sheet.id} id={sheet.id}>
+            {sheet.thumbs?.[lang] && <img className={s.thumb} src={sheet.thumbs[lang]} alt={sheet.title[lang]} />}
             <span className={s.badge}>{sheet.badge}</span>
             <h2>{sheet.title[lang]}<span className={s.other}>{sheet.title[other]}</span></h2>
             <p>{sheet.description[lang]}</p>
@@ -135,7 +136,7 @@ export default function ResourcesView({ initialResource = '', initialLang = 'en'
               {sheetList.map(sheet => (
                 <label key={sheet.id}>
                   <input type="radio" name="resource" value={sheet.id} checked={resource === sheet.id} onChange={() => { setResource(sheet.id); syncUrl(sheet.id, lang) }} />
-                  {sheet.title[lang].replace(/^\[Placeholder( ES)?\]\s*/, '')}
+                  {sheet.title[lang]}
                 </label>
               ))}
             </div>
