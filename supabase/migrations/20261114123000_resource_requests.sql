@@ -69,10 +69,13 @@ begin
 end
 $function$;
 
-revoke all on function public.resource_request_submit(text, text, text, text, boolean, boolean, text) from public, anon, authenticated;
-revoke all on function public.resource_request_mark_sent(uuid) from public, anon, authenticated;
-grant execute on function public.resource_request_submit(text, text, text, text, boolean, boolean, text) to service_role;
-grant execute on function public.resource_request_mark_sent(uuid) to service_role;
+revoke all on function public.resource_request_submit(text, text, text, text, boolean, boolean, text) from public;
+revoke all on function public.resource_request_mark_sent(uuid) from public;
+-- Execute is granted to the same roles as fitcheck_submit, because the Next.js
+-- API calls PostgREST with the same key. RLS stays on; there are no table policies
+-- for anon or authenticated, so they still cannot read or write rows directly.
+grant execute on function public.resource_request_submit(text, text, text, text, boolean, boolean, text) to anon, authenticated, service_role;
+grant execute on function public.resource_request_mark_sent(uuid) to anon, authenticated, service_role;
 
 -- 30-day retention, matching the privacy notice and the Fit Check job (03:20 UTC).
 SELECT cron.schedule(
